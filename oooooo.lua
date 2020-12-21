@@ -784,7 +784,9 @@ function update_timer()
     uS.currentBeat=math.floor(clock.get_beats())
     for i=1,6 do
       if params:get(i.."reset every beat")>0 then
-        if uS.currentBeat%params:get(i.."reset every beat")==0 then
+        print(uS.currentBeat)
+        if uS.currentBeat%params:get(i.."reset every beat")==0 and uS.recording[i]==0 then
+          print("resetting: "..i)
           tape_reset(i)
         end
       end
